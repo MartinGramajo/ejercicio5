@@ -18,9 +18,9 @@ Estas tareas quedan guardadas de manera local en nuestro navegador.
 ## Como Clonar el repositorio 💻
 
 ```bash
-Agrego el link de mi repo [repositorio](https://github.com/MartinGramajo/ejercicio4.git)
+Agrego el link de mi repo [repositorio](https://github.com/MartinGramajo/ejercicio5.git)
 
-git clone https://github.com/MartinGramajo/ejercicio4.git
+git clone https://github.com/MartinGramajo/ejercicio5.git
 ```
 
 ## Como contribuir con el repositorio 🤝
