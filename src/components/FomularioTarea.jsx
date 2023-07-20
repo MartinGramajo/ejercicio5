@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Container, Form, InputGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import ListaTareas from "./ListaTareas";
+let tareasIniciales = JSON.parse(localStorage.getItem("tareas")) || [];
 
 const FormularioTarea = () => {
   const [tarea, setTarea] = useState("");
-  const [listaTareas, setListaTareas] = useState([]);
+  const [listaTareas, setListaTareas] = useState(tareasIniciales);
+
+  useEffect(() => {
+    if (tareasIniciales) {
+      localStorage.setItem("tareas", JSON.stringify(listaTareas));
+    } else {
+      localStorage.setItem("tareas", JSON.stringify([]));
+    }
+  }, [listaTareas]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -45,6 +54,11 @@ const FormularioTarea = () => {
             </Button>
           </InputGroup>
         </Form>
+        <h1 className="container text-center text-white font-weight-bold  fs-0 mt-5">
+          {listaTareas.length === 0
+            ? " No hay Tareas por ahora"
+            : " Administras tus Tareas"}
+        </h1>
         <ListaTareas listaDeTareas={listaTareas} borrarTarea={borrarTarea} />
       </Container>
     </>
